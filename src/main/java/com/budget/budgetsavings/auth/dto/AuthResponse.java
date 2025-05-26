@@ -12,9 +12,6 @@ public record AuthResponse(
         @JsonProperty("expires_in")
         Long expiresIn,
 
-        @JsonProperty("token_type")
-        String tokenType,
-
         User user
 ) {
 

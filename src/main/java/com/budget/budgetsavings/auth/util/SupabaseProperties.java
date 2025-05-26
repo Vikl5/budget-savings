@@ -10,8 +10,6 @@ import org.springframework.context.annotation.Configuration;
 public class SupabaseProperties {
     private String url;
     private String anonKey;
-    private String serviceRoleKey;
-    private String jwtSecret;
 
 
     @Override
@@ -19,8 +17,6 @@ public class SupabaseProperties {
         return "SupabaseProperties{" +
                 "url='" + url + '\'' +
                 ", anonKey='" + anonKey + '\'' +
-                ", serviceRoleKey='" + serviceRoleKey + '\'' +
-                ", jwtSecret='" + jwtSecret.length() + '\'' +
                 '}';
     }
 }

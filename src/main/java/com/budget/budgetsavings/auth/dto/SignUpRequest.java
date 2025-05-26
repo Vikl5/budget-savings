@@ -7,7 +7,7 @@ public record SignUpRequest(
     @Override
     public String toString() {
         return "SignInRequest{" +
-                "email='" + email.length() + '\'' +
+                "email='" + email + '\'' +
                 '}';
     }
     }

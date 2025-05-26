@@ -7,5 +7,6 @@ public interface SupabaseAuthService {
 
     AuthResponse signUp(String email, String password);
 
+
     AuthResponse signIn(String email, String password);
 }
