@@ -1,18 +1,27 @@
 # Start with a base image that has Java 17 (or your app's Java version)
-FROM eclipse-temurin:21-jdk-jammy
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
 
+# Set the working directory
 WORKDIR /app
 
-COPY mvnw .
-COPY .mvn .mvn
+# Copy project files
 COPY pom.xml .
-
-RUN ./mvnw dependency:go-offline -B
 COPY src ./src
 
-RUN ./mvnw package -DskipTests
+# Build the project with production profile (minimizes frontend dependencies)
+RUN mvn clean package -Pproduction -DskipTests
 
+# ---- Stage 2: Create a minimal runtime image ----
+FROM eclipse-temurin:21-jre AS runtime
+
+# Set working directory
+WORKDIR /app
+
+# Copy the built JAR from the builder stage
+COPY --from=builder /app/target/*.jar app.jar
+
+# Expose application port
 EXPOSE 8080
 
 # Run the jar file
-CMD ["java", "-jar", "target/budgetsavings-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]
