@@ -35,6 +35,25 @@ To get a local copy up and running follow these steps:
    ./mvnw spring-boot:run
    ```
 
+<!-- CONTRIBUTING -->
+## Contributing
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request.
+Here are a few things of the top of my head which are missing:
+
+- Allow authenticated users to update the database
+- Add graphs to visualize the data from the database
+- Github Actions for automatically build and deploy the Docker image to Render
+- Add Dependabot to keep libraries up to date
+
+<!-- ARCHITECTURE -->
+## Architecture
+A high level overview of the current version of the application
+
+
+<img width="1238" alt="Screenshot 2025-05-27 at 12 51 04" src="https://github.com/user-attachments/assets/015fbc5e-d940-46ed-9b42-8f981894b2b4" />
+
+
 <!-- LICENSE -->
 ## License
 
